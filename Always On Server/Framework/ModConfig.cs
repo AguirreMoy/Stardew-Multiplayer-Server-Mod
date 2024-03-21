@@ -8,7 +8,7 @@ namespace Always_On_Server.Framework
 
         public int profitmargin { get; set; } = 100;
         public int upgradeHouse { get; set; } = 0;
-        public string petname { get; set; } = "Funnysnek";
+        public string petname { get; set; } = "Qwerty";
         public bool farmcavechoicemushrooms { get; set; } = true;
         public bool communitycenterrun { get; set; } = true;
         public int timeOfDayToSleep { get; set; } = 2200;
