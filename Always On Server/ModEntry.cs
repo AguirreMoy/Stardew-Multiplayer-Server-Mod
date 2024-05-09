@@ -449,7 +449,7 @@ namespace Always_On_Server
                 return;
             }
 
-            if (IsEnabled && this.Config.clientsCanPause)
+            if (this.Config.clientsCanPause)
             {
                 List<ChatMessage> messages = this.Helper.Reflection.GetField<List<ChatMessage>>(Game1.chatBox, "messages").GetValue();
                 if (messages.Count > 0)
