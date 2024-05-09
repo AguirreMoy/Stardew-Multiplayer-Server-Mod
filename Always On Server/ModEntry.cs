@@ -438,16 +438,13 @@ namespace Always_On_Server
         /// <param name="e">The event data.</param>
         private void OnOneSecondUpdateTicked(object sender, OneSecondUpdateTickedEventArgs e)
         {
-            // pause if no players present
-            if (IsEnabled)
-            {
-                NoClientsPause();
-            }
-            else
+            if (!IsEnabled) // server toggle
             {
                 Game1.netWorldState.Value.IsPaused = false;
                 return;
             }
+
+            NoClientsPause();
 
             if (this.Config.clientsCanPause)
             {
