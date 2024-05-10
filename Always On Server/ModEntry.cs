@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -24,6 +24,7 @@ namespace Always_On_Server
         private ModConfig Config;
 
         private int gameTicks; //stores 1s game ticks for pause code
+        private int skipTicks; //stores 1s game ticks for skip code
         private int gameClockTicks; //stores in game clock change 
         private int numPlayers; //stores number of players
         private bool IsEnabled;  //stores if the the server mod is enabled 
@@ -439,10 +440,9 @@ namespace Always_On_Server
         {
             if (!IsEnabled) // server toggle
             {
-                Game1.paused = false;
+                Game1.netWorldState.Value.IsPaused = false;
                 return;
             }
-
 
             NoClientsPause();
 
@@ -563,7 +563,13 @@ namespace Always_On_Server
                 }
                 if (Game1.CurrentEvent != null && Game1.CurrentEvent.skippable)
                 {
-                    Game1.CurrentEvent.skipEvent();
+                    skipTicks += 1; // If we spam skipEvent() it gets stuck.
+
+                    if (skipTicks >= 3)
+                    {
+                        Game1.CurrentEvent.skipEvent();
+                        skipTicks = 0;
+                    }
                 }
                 /*if (!playerMovedRight && Game1.player.canMove)
                 {
@@ -887,10 +893,6 @@ namespace Always_On_Server
         private void NoClientsPause()
         {
 
-
-
-
-
             gameTicks += 1;
 
             if (gameTicks >= 3)
@@ -900,15 +902,18 @@ namespace Always_On_Server
                 if (numPlayers >= 1 || debug)
                 {
                     if (clientPaused)
+                    {
                         Game1.netWorldState.Value.IsPaused = true;
+                    }
                     else
-                        Game1.paused = false;
+                    {
+                        Game1.netWorldState.Value.IsPaused = false;
+                    }
 
                 }
                 else if (numPlayers <= 0 && Game1.timeOfDay >= 610 && Game1.timeOfDay <= 2500 && currentDate != eggFestival && currentDate != flowerDance && currentDate != luau && currentDate != danceOfJellies && currentDate != stardewValleyFair && currentDate != spiritsEve && currentDate != festivalOfIce && currentDate != feastOfWinterStar)
                 {
-                    Game1.paused = true;
-
+                    Game1.netWorldState.Value.IsPaused = true;
                 }
 
                 gameTicks = 0;
