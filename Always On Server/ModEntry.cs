@@ -303,11 +303,11 @@ namespace Always_On_Server
                     var data = this.Helper.Data.ReadJsonFile<ModData>($"data/{Constants.SaveFolderName}.json") ?? new ModData();
 
                     // Set levels
-                    Game1.player.farmingLevel.Value = data.MiningLevel;
+                    Game1.player.farmingLevel.Value = data.FarmingLevel;
                     Game1.player.miningLevel.Value = data.MiningLevel;
-                    Game1.player.foragingLevel.Value = data.MiningLevel;
-                    Game1.player.fishingLevel.Value = data.MiningLevel;
-                    Game1.player.combatLevel.Value = data.MiningLevel;
+                    Game1.player.foragingLevel.Value = data.ForagingLevel;
+                    Game1.player.fishingLevel.Value = data.FishingLevel;
+                    Game1.player.combatLevel.Value = data.CombatLevel;
 
                     // Set EXP
                     Game1.player.experiencePoints[FarmingSkillNumber] = data.FarmingExperience;
@@ -396,11 +396,11 @@ namespace Always_On_Server
                         var data = this.Helper.Data.ReadJsonFile<ModData>($"data/{Constants.SaveFolderName}.json") ?? new ModData();
 
                         // Set levels
-                        Game1.player.farmingLevel.Value = data.MiningLevel;
+                        Game1.player.farmingLevel.Value = data.FarmingLevel;
                         Game1.player.miningLevel.Value = data.MiningLevel;
-                        Game1.player.foragingLevel.Value = data.MiningLevel;
-                        Game1.player.fishingLevel.Value = data.MiningLevel;
-                        Game1.player.combatLevel.Value = data.MiningLevel;
+                        Game1.player.foragingLevel.Value = data.ForagingLevel;
+                        Game1.player.fishingLevel.Value = data.FishingLevel;
+                        Game1.player.combatLevel.Value = data.CombatLevel;
 
                         // Set EXP
                         Game1.player.experiencePoints[FarmingSkillNumber] = data.FarmingExperience;
