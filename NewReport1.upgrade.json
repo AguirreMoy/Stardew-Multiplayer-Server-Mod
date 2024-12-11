@@ -1,0 +1,177 @@
+{
+  "settings": {
+    "components": {
+      "code": true,
+      "binaries": false
+    },
+    "targetId": "",
+    "targetDisplayName": ".NET 8.0"
+  },
+  "analysisStartTime": "2024-12-11T05:42:13.0673456Z",
+  "analysisEndTime": "2024-12-11T05:42:19.7471872Z",
+  "privacyModeHelpUrl": "https://go.microsoft.com/fwlink/?linkid=2270980",
+  "stats": {
+    "summary": {
+      "projects": 1,
+      "issues": 3,
+      "incidents": 4,
+      "effort": 4
+    },
+    "charts": {
+      "severity": {
+        "Mandatory": 2,
+        "Optional": 0,
+        "Potential": 2,
+        "Information": 0
+      },
+      "category": {
+        "Project": 2,
+        "Api": 2
+      }
+    }
+  },
+  "projects": [
+    {
+      "path": "Always On Server\\Stardew Multiplayer Server Mod.csproj",
+      "startingProject": true,
+      "issues": 3,
+      "storyPoints": 4,
+      "ruleInstances": [
+        {
+          "incidentId": "39eb69c4-2ffe-4922-be4f-a7dd68c3e1f4",
+          "ruleId": "Project.0001",
+          "projectPath": "Always On Server\\Stardew Multiplayer Server Mod.csproj",
+          "state": "Active",
+          "location": {
+            "kind": "File",
+            "path": "Always On Server\\Stardew Multiplayer Server Mod.csproj"
+          }
+        },
+        {
+          "incidentId": "15f6c836-6935-4f04-a9ba-67c71ed8b8d6",
+          "ruleId": "Project.0002",
+          "projectPath": "Always On Server\\Stardew Multiplayer Server Mod.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Current: .NETFramework,Version=v4.8\nNew: net8.0",
+              "protected": "Current: .NETFramework,Version=v4.8\nNew: net8.0"
+            },
+            "kind": "File",
+            "path": "Always On Server\\Stardew Multiplayer Server Mod.csproj",
+            "snippet": "Current: .NETFramework,Version=v4.8\nNew: net8.0",
+            "protectedSnippet": "Current: .NETFramework,Version=v4.8\nNew: net8.0"
+          }
+        },
+        {
+          "incidentId": "0f0c0700-3933-423f-ad83-6e1e9c718bf5",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Configuration.ConfigurationManager, 9.0.0-preview.6.24302.3.",
+          "projectPath": "Always On Server\\Stardew Multiplayer Server Mod.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "ApplicationSettingsBase",
+              "protected": "T:System.Configuration.ApplicationSettingsBase"
+            },
+            "kind": "File",
+            "path": "Always On Server\\Properties\\Settings.Designer.cs",
+            "snippet": "ApplicationSettingsBase",
+            "protectedSnippet": "T:System.Configuration.ApplicationSettingsBase",
+            "label": "T:System.Configuration.ApplicationSettingsBase",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/system.configuration.applicationsettingsbase",
+                "isCustom": false
+              }
+            ],
+            "line": 15,
+            "column": 74
+          }
+        },
+        {
+          "incidentId": "39db6a2e-92ef-4e9a-8425-8e59fa931588",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Configuration.ConfigurationManager, 9.0.0-preview.6.24302.3.",
+          "projectPath": "Always On Server\\Stardew Multiplayer Server Mod.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "ApplicationSettingsBase",
+              "protected": "M:System.Configuration.ApplicationSettingsBase.#ctor"
+            },
+            "kind": "File",
+            "path": "Always On Server\\Properties\\Settings.Designer.cs",
+            "snippet": "ApplicationSettingsBase",
+            "protectedSnippet": "M:System.Configuration.ApplicationSettingsBase.#ctor",
+            "label": "M:System.Configuration.ApplicationSettingsBase.#ctor",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/system.configuration.applicationsettingsbase.applicationsettingsbase",
+                "isCustom": false
+              }
+            ],
+            "line": 15,
+            "column": 74
+          }
+        }
+      ]
+    }
+  ],
+  "rules": {
+    "Project.0001": {
+      "id": "Project.0001",
+      "description": "Project file needs to be converted to SDK-style. Modern .NET framework projects require a change in the project file format and use SDK corresponding to project flavor and functionality.",
+      "label": "Project file needs to be converted to SDK-style",
+      "severity": "Mandatory",
+      "effort": 1,
+      "links": [
+        {
+          "title": "Overview of porting from .NET Framework to .NET",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2265227",
+          "isCustom": false
+        },
+        {
+          "title": ".NET project SDKs",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2265226",
+          "isCustom": false
+        }
+      ]
+    },
+    "Project.0002": {
+      "id": "Project.0002",
+      "description": "Project\u0027s target framework(s) needs to be changed to the new target framework that you selected for this upgrade.\n\nDuring upgrade target framework will be adjusted to corresponding platform when applicable. In some cases project would result in multiple target frameworks after the upgrade if it was using features that now have their own platforms in moderrn .NET frameworks (windows, iOS, Android etc).",
+      "label": "Project\u0027s target framework(s) needs to be changed",
+      "severity": "Mandatory",
+      "effort": 1,
+      "links": [
+        {
+          "title": "Overview of porting from .NET Framework to .NET",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2265227",
+          "isCustom": false
+        },
+        {
+          "title": ".NET project SDKs",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2265226",
+          "isCustom": false
+        }
+      ]
+    },
+    "Api.0002": {
+      "id": "Api.0002",
+      "description": "Some API that lived in older versions of .NET frameworks were moved to standalone NuGet packages that could be added to projects explicitly.",
+      "label": "API available in NuGet package",
+      "severity": "Potential",
+      "effort": 1,
+      "links": [
+        {
+          "title": "Breaking changes in .NET",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262679",
+          "isCustom": false
+        }
+      ]
+    }
+  }
+}

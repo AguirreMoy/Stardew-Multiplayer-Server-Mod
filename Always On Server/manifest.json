@@ -1,7 +1,7 @@
 {
   "Name": "Stardew Multiplayer Server",
   "Author": "funny-snek & Zuberii & moy",
-  "Version": "1.0.4",
+  "Version": "1.0.5",
   "Description": "A Headless server mod.",
   "UniqueID": "moy.Always_On_Server",
   "EntryDll": "Stardew-Multiplayer-Server.dll",
